@@ -38,7 +38,7 @@ bot.onText(/\/RemoteUpload/, async (msg) => {
         var dirUrl = res[1]
         const send = await onlyS.RemoteUpload(dirUrl);
         if(send.status === 400) {
-            const mes = `Anjir error :(\nServer time: ${send.server_time}\nError: ${send.msg}`
+            const mes = `Server time: ${send.server_time}\nError: ${send.msg}`
             bot.sendMessage(msg.chat.id, mes);
         } else if (send.msg === 'OK') {
             bot.sendMessage(msg.chat.id, `Done Sir,\nStatus: ${send.status}\nServer_time: ${send.server_time}\nFile Code: ${send.result.filecode}\nLink: https://onlystream.tv/${send.result.filecode}`);
@@ -63,7 +63,7 @@ bot.onText(/\/FileInfo/, async (msg) => {
         var dirUrl = res[1]
         const send = await onlyS.FileInfo(dirUrl);
         if(send.status === 400) {
-            const mes = `Anjir error :(\nServer time: ${send.server_time}\nError: ${send.msg}`
+            const mes = `Server time: ${send.server_time}\nError: ${send.msg}`
             bot.sendMessage(msg.chat.id, mes);
         } else if (send.msg === 'OK') {
             const len = send.result[0].length/60
