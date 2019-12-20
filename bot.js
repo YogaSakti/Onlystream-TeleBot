@@ -31,10 +31,11 @@ bot.onText(/\/RemoteUpload/, async (msg) => {
     bot.sendMessage(msg.chat.id, `Direct Url?:`, opts);
     bot.once('message', async (msg) => {
         var raw = msg.text;
+        var res = raw.split(" ");
         bot.sendMessage(msg.chat.id, 'Thanks, your request has been received', {
             reply_to_message_id: msg.message_id
         });
-        var dirUrl = raw
+        var dirUrl = res[1]
         const send = await onlyS.RemoteUpload(dirUrl);
         if(send.status === 400) {
             const mes = `Anjir error :(\nServer time: ${send.server_time}\nError: ${send.msg}`
@@ -55,10 +56,11 @@ bot.onText(/\/FileInfo/, async (msg) => {
     bot.sendMessage(msg.chat.id, `File Code?:`, opts);
     bot.once('message', async (msg) => {
         var raw = msg.text;
+        var res = raw.split(" ");
         bot.sendMessage(msg.chat.id, 'Thanks, your request has been received', {
             reply_to_message_id: msg.message_id
         });
-        var dirUrl = raw
+        var dirUrl = res[1]
         const send = await onlyS.FileInfo(dirUrl);
         if(send.status === 400) {
             const mes = `Anjir error :(\nServer time: ${send.server_time}\nError: ${send.msg}`
