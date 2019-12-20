@@ -41,7 +41,7 @@ bot.onText(/\/RemoteUpload/, async (msg) => {
             const mes = `Anjir error :(\nServer time: ${send.server_time}\nError: ${send.msg}`
             bot.sendMessage(msg.chat.id, mes);
         } else if (send.msg === 'OK') {
-            bot.sendMessage(msg.chat.id, `Done Sir,\nStatus: ${send.status}\nServer_time: ${send.server_time}\nFile Code: ${send.result.filecode}`);
+            bot.sendMessage(msg.chat.id, `Done Sir,\nStatus: ${send.status}\nServer_time: ${send.server_time}\nFile Code: ${send.result.filecode}\nLink: https://onlystream.tv/${send.result.filecode}`);
         } else {
             const mes = `Anjir error :(`
             bot.sendMessage(msg.chat.id, mes);
@@ -67,7 +67,7 @@ bot.onText(/\/FileInfo/, async (msg) => {
             bot.sendMessage(msg.chat.id, mes);
         } else if (send.msg === 'OK') {
             const len = send.result[0].length/60
-            bot.sendMessage(msg.chat.id, `File Name: ${send.result[0].name}\nLength: ${len.substring(0,5)}Minute\nCan Play:  ${send.result[0].canplay}\nViews:  ${send.result[0].views}\nThumbnail: ${send.result[0].thumbnail}`);
+            bot.sendMessage(msg.chat.id, `File Name: ${send.result[0].name}\nLength: ${len.substring(0,5)}Minute\nCan Play:  ${send.result[0].canplay}\nViews:  ${send.result[0].views}\nThumbnail: ${send.result[0].thumbnail}\nLink: https://onlystream.tv/${send.result.filecode}`);
         } else {
             const mes = `Anjir error :(`
             bot.sendMessage(msg.chat.id, mes);
